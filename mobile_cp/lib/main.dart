@@ -94,7 +94,9 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(fontSize: 16, color: isFull? Colors.red : Colors.black)
                     ),
                   ),
-                  const SizedBox(width: 20,height: 24),
+              ],
+            ),
+            const SizedBox(width: 20,height: 24),
                   TextButton(
                     onPressed: minimo ? limpador : null,
                     style: TextButton.styleFrom(
@@ -105,11 +107,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Text(
                       "Limpar contador",
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      style: TextStyle(fontSize: 16, color: minimo ? Colors.black : Colors.red),
                     ),
                   ),
-              ],
-            ),
           ],
         ),
       ),
