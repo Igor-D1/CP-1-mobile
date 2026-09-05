@@ -1,4 +1,4 @@
-name: mobile_cp
+name: Restaurante_Mesa_Cheia
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -39,6 +39,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.13.1
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -46,6 +48,11 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
 
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/Icone_cp1.png"
+  min_sdk_android: 21
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -58,8 +65,11 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/limite_bg.png
-    - assets/images/restaurante_bg.png
+    - assets/images/limite_mobile_bg.png
+    - assets/images/limite_desktop_bg.png
+    - assets/images/restaurante_mobile_bg.png
+    - assets/images/restaurante_desktop_bg.png
+    - assets/icon/Icone_cp1.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

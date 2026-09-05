@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      title: "Restaurante Mesa Cheia",
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
@@ -38,8 +39,20 @@ class _HomePageState extends State<HomePage> {
   bool get isEmpty => contador == 0;
   bool get minimo => contador >= 10;
 
+  String getBackgroundImage(bool isWideScreen, bool isFull){
+    if(isWideScreen){
+      return isFull ? "assets/images/limite_desktop_bg.png" : "assets/images/restaurante_desktop_bg.png";
+    } else {
+      return isFull ? "assets/images/limite_mobile_bg.png" : "assets/images/restaurante_mobile_bg.png";
+    }
+  }
+
   @override
   Widget build(BuildContext context){
+    final bool isWideScreen = MediaQuery.of(context).size.width > 600;
+
+    final String imagePath = getBackgroundImage(isWideScreen, isFull);
+
     return Scaffold(appBar: AppBar(
       title: Text("Restaurante Mesa Cheia ", style: TextStyle(fontSize:30, color: Colors.white)
         ),
@@ -47,10 +60,17 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image:AssetImage(isFull ? "assets/images/limite_bg.png" : "assets/images/restaurante_bg.png"),
-            fit:BoxFit.cover
+            image: AssetImage(imagePath),
+            fit:BoxFit.cover,
+            alignment: Alignment.bottomCenter,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withAlpha(100),
+              BlendMode.darken,
+            )
             )
         ),
         child: Column(
@@ -74,11 +94,12 @@ class _HomePageState extends State<HomePage> {
                 TextButton(
                   onPressed: isEmpty ? null : decrementador,
                   style: TextButton.styleFrom(
-                    backgroundColor: isEmpty ?Colors.white.withAlpha(90) : Colors.white,
+                    backgroundColor: isEmpty ?Colors.white.withAlpha(70) : Colors.white,
                     fixedSize: Size(141, 55),
                   ),
                   child: Text(
                     isEmpty? "Vazio" : "Saiu",
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 16, color: isEmpty? Colors.red : Colors.black),
                   ),
                   ),
@@ -86,11 +107,12 @@ class _HomePageState extends State<HomePage> {
                   TextButton(
                     onPressed: isFull ? null : incrementador,
                     style: TextButton.styleFrom(
-                      backgroundColor: isFull? Colors.white.withAlpha(90) : Colors.white,
+                      backgroundColor: isFull? Colors.white.withAlpha(70) : Colors.white,
                       fixedSize: Size(141, 55),
                     ),
                     child: Text(
                       isFull ? "Lotado" : "Entrou",
+                      textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 16, color: isFull? Colors.red : Colors.black)
                     ),
                   ),
@@ -102,11 +124,13 @@ class _HomePageState extends State<HomePage> {
                     style: TextButton.styleFrom(
                       backgroundColor: minimo
                           ? Colors.white
-                          : Colors.white.withAlpha(90),
+                          : Colors.white.withAlpha(70),
                       fixedSize: Size(141, 55),
+                      
                     ),
                     child: Text(
                       "Limpar contador",
+                      textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 16, color: minimo ? Colors.black : Colors.red),
                     ),
                   ),
