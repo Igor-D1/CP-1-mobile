@@ -39,6 +39,9 @@ class _HomePageState extends State<HomePage> {
     setState(() => contador = 0);
   }
 
+  void secreto() {
+    setState(() => image = !image);
+  }
   bool get isFull => contador == 50;
   bool get quaseCheio => contador >= 40;
   bool get isEmpty => contador == 0;
@@ -175,13 +178,8 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Botão circular pequeno
                   FloatingActionButton.small(
-                    onPressed: () {
-                      setState(() {
-                        image = !image;
-                      });
-                    },
+                    onPressed: secreto,
                     child: Icon(
                       image ? Icons.close : Icons.help_outline,
                       color: Colors.black,
