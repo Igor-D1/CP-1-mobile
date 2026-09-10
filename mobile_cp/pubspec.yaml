@@ -1,4 +1,4 @@
-name: mobile_cp
+name: Restaurante_Mesa_Cheia
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -34,6 +34,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  google_fonts: ^8.2.1
 
 dev_dependencies:
   flutter_test:
@@ -45,7 +46,31 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: "^0.14.4"
 
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/icon/Icone_cp1.png"
+  image_path: "assets/icon/Icone_cp1.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/icon/Icone_cp1.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/icon/Icone_cp1.png"
+    adaptive_icon_background: "#000000"
+    adaptive_icon_foreground: "assets/icon/Icone_cp1.png"
+  macos:
+    generate: true
+    image_path: "assets/icon/Icone_cp1.png"
+    adaptive_icon_background: "#000000"
+    adaptive_icon_foreground: "assets/icon/Icone_cp1.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -58,8 +83,12 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/limite_bg.png
-    - assets/images/restaurante_bg.png
+    - assets/images/limite_mobile_bg.png
+    - assets/images/limite_desktop_bg.png
+    - assets/images/restaurante_mobile_bg.png
+    - assets/images/restaurante_desktop_bg.png
+    - assets/icon/Icone_cp1.png
+    - assets/icon/Dodo_prova.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
