@@ -112,45 +112,55 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextButton(
-                          onPressed: isEmpty ? null : decrementador,
-                          style: TextButton.styleFrom(
-                            backgroundColor: isEmpty
-                                ? Colors.white.withAlpha(70)
-                                : Colors.white,
-                            fixedSize: Size(141, 55),
-                          ),
-                          child: Text(
-                            isEmpty ? "Vazio" : "Saiu",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: isEmpty ? Colors.red : Colors.black,
+                        Tooltip(
+                          message: "Diminuir contador -1",
+                          child: TextButton(
+                            onPressed: isEmpty ? null : decrementador,
+                            style: TextButton.styleFrom(
+                              backgroundColor: isEmpty
+                                  ? Colors.white.withAlpha(70)
+                                  : Colors.white,
+                              fixedSize: Size(141, 55),
+                            ),
+                            child: Text(
+                              isEmpty ? "Vazio" : "Saiu",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: isEmpty ? Colors.red : Colors.black,
+                              ),
                             ),
                           ),
                         ),
+                        
                         const SizedBox(width: 20),
-                        TextButton(
-                          onPressed: isFull ? null : incrementador,
-                          style: TextButton.styleFrom(
-                            backgroundColor: isFull
-                                ? Colors.white.withAlpha(70)
-                                : Colors.white,
-                            fixedSize: Size(141, 55),
-                          ),
-                          child: Text(
-                            isFull ? "Lotado" : "Entrou",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: isFull ? Colors.red : Colors.black,
+                        Tooltip(
+                          message: "Aumentar contador +1",
+                          child: TextButton(
+                            onPressed: isFull ? null : incrementador,
+                            style: TextButton.styleFrom(
+                              backgroundColor: isFull
+                                  ? Colors.white.withAlpha(70)
+                                  : Colors.white,
+                              fixedSize: Size(141, 55),
+                            ),
+                            child: Text(
+                              isFull ? "Lotado" : "Entrou",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: isFull ? Colors.red : Colors.black,
+                              ),
                             ),
                           ),
-                        ),
+                        )
+                        
                       ],
                     ),
                     const SizedBox(height: 24),
-                    TextButton(
+                    Tooltip(
+                      message: "Voltar o contador ao 0",
+                      child: TextButton(
                       onPressed: minimo ? limpador : null,
                       style: TextButton.styleFrom(
                         backgroundColor: minimo
@@ -167,6 +177,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    )
+                    
                   ],
                 ),
               ),
@@ -180,6 +192,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   FloatingActionButton.small(
                     onPressed: secreto,
+                    tooltip: "Secreto",
                     child: Icon(
                       image ? Icons.close : Icons.help_outline,
                       color: Colors.black,
