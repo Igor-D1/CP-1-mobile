@@ -1,8 +1,8 @@
 # Restaurante Mesa Cheia
 
 # Integrantes:
-## Igor Dantas da Silva - RM:568337
-## Guilherme Santos Sena - RM:568101
+## Igor Dantas da Silva
+## Guilherme Santos Sena 
 
 A new Flutter project.
 
